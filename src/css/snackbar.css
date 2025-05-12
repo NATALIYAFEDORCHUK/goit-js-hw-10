@@ -1,0 +1,80 @@
+.form {
+  max-width: 360px;
+  width: 100%;
+}
+.form-label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.form-input {
+  width: 360px;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+.form-input:hover {
+  border: 1px solid #000;
+}
+.form-input:focus {
+  border-color: #4e75ff;
+  outline: none;
+}
+
+.fieldset {
+  width: 340px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 48px;
+}
+.fieldset:hover,
+.fieldset:focus {
+  border: 1px solid #2e2f42;
+}
+.fieldset-legend {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.fieldset-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.form-button {
+  width: 360px;
+  height: 40px;
+  padding: 8px 16px;
+  border: transparent;
+  border-radius: 8px;
+  background-color: #4e75ff;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-style: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.form-button:hover,
+.form-button:focus {
+  background-color: #6c8cff;
+}
