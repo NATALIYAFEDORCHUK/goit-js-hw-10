@@ -5,9 +5,18 @@ const form = document.querySelector('.form');
 const inputDelay = document.querySelector('input[name="delay"]');
 const inputStates = document.querySelectorAll('input[name="state"]');
 
+function errorMessage(message) {
+  iziToast.warning({
+    title: 'Warning',
+    message: message,
+    position: 'topRight',
+    backgroundColor: '#ffa000',
+  });
+}
+
 function successMessage(delay) {
   iziToast.success({
-    title: '✅ Success',
+    title: 'Success',
     message: `Fulfilled promise in ${delay}ms`,
     position: 'topRight',
     backgroundColor: '#59a10d',
@@ -16,7 +25,7 @@ function successMessage(delay) {
 
 function collapseMessage(delay) {
   iziToast.error({
-    title: '❌ Error',
+    title: 'Error',
     message: `Rejected promise in ${delay}ms`,
     position: 'topRight',
     backgroundColor: '#ef4040',
@@ -41,17 +50,14 @@ function addPromise(delay, state, callback) {
     });
 }
 
-function clearForm() {
-  inputDelay.value = '';
-  inputStates.forEach(input => (input.checked = false));
-}
-
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-  const delay = Number(inputDelay.value);
+
+  const delayStr = inputDelay.value.trim();
+  const delay = Number(delayStr);
   const state = [...inputStates].find(input => input.checked)?.value;
 
-  if (!delay || delay <= 0) {
+  if (delayStr === '' || isNaN(delay) || delay <= 0) {
     errorMessage('Please fill in the field.');
     return;
   }
@@ -61,7 +67,7 @@ form.addEventListener('submit', evt => {
     return;
   }
 
-  clearForm();
+  form.reset();
 
   addPromise(delay, state, (msgFunc, delayTime) => {
     msgFunc(delayTime);
