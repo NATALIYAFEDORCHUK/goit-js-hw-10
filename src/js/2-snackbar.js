@@ -53,11 +53,10 @@ function addPromise(delay, state, callback) {
 form.addEventListener('submit', evt => {
   evt.preventDefault();
 
-  const delayStr = inputDelay.value.trim();
-  const delay = Number(delayStr);
+  const delay = Number(inputDelay.value);
   const state = [...inputStates].find(input => input.checked)?.value;
 
-  if (delayStr === '' || isNaN(delay) || delay <= 0) {
+  if (!delay || delay <= 0) {
     errorMessage('Please fill in the field.');
     return;
   }
